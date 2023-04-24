@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kafka-producer
+spec:
+  containers:
+  - name: debugger
+    image: confluentinc/cp-kafka:7.0.1
+    command: ["sleep", "10m"]
+    env:
+    - name: bss
+      value: "broker.kafka.svc.cluster.local:9092"
+    resources:
+      limits:
+        memory: "60Mi"
+        cpu: "500m"

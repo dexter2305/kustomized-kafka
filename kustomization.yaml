@@ -1,0 +1,7 @@
+resources:
+- zookeeper
+- broker
+- producer
+- consumer
+
+namespace: kafka
