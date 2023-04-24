@@ -29,16 +29,17 @@ k apply -k . --dry-run=server
 ```
 
 ## Install
-- Install broker and zookeper
+- Install broker, zookeper, kafka-producer, kafka-consumer.
+- Kafka-producer and Kafka-consumer pods will be used only for testing. 
 ```bash
 k apply -k . 
 ```
 
-- Install producer and consumer for testing
+# Uninstall
 ```bash
-k apply -k producer
-k apply -k consumer
+k delete -k .
 ```
+
 
 
 
