@@ -6,11 +6,11 @@ spec:
   containers:
   - name: kafka-consumer
     image: confluentinc/cp-kafka:7.0.1
-    command: ["sleep", "10m"]
+    command: ["sleep", "60m"]
     env:
-    - name: bss
-      value: "broker.kafka.svc.cluster.local:9092"
+    - name: bsso
+      value: "--bootstrap-server broker.kafka.svc.cluster.local:9092"
     resources:
       limits:
-        memory: "60Mi"
+        memory: "200Mi"
         cpu: "500m"
