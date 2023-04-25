@@ -3,12 +3,10 @@
 Kafka requires zookeeper for this version. `kustomize` is used to install kafka.
 
 # About installation
+Installation creates the following
 
-- Zookeeper and kafka are deployed in namespace `kafka`.
-- Creates a single instance of zookeeper
-- Creates a single instance of broker
-- Creates a producer and consumer pod in namespace `lab`. This is for debugging purpose.
-
+- Zookeeper and kafka instances are deployed in namespace `kafka`.
+- Kafka producer and consumer pods are deployed in namespace  `kafka`. These are pods are useful for testing.
 
 # Installation steps  
 
@@ -35,11 +33,9 @@ k apply -k . --dry-run=server
 k apply -k . 
 ```
 
+> Installing individual components deploys components in the default namespace.
+
 # Uninstall
 ```bash
 k delete -k .
 ```
-
-
-
-

@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zookeeper
+spec:
+  template:
+    spec:
+      containers:
+      - name: zookeeper-container
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"

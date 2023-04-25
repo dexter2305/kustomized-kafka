@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: broker
+spec:
+  template:
+    spec:
+      containers:
+      - name: broker
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"

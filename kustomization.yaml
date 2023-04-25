@@ -1,6 +1,6 @@
 resources:
-- zookeeper
-- broker
+- zookeeper/overlays/dev
+- broker/overlays/dev
 - producer
 - consumer
 
