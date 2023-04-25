@@ -3,13 +3,16 @@ kind: Pod
 metadata:
   name: kafka-consumer
 spec:
+  restartPolicy: OnFailure
   containers:
   - name: kafka-consumer
     image: confluentinc/cp-kafka:7.0.1
-    command: ["sleep", "60m"]
+    command: ["sleep", "6h"]
     env:
     - name: bsso
       value: "--bootstrap-server broker.kafka.svc.cluster.local:9092"
+    - name: consumer_props
+      value: "--property print.partition=true --property print.key=true --property print.value=true --property print.headers=true --property print.offset=true"
     resources:
       limits:
         memory: "200Mi"

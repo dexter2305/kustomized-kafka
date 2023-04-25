@@ -39,3 +39,7 @@ k apply -k .
 ```bash
 k delete -k .
 ```
+
+## References
+
+- [conduktor.io](https://www.conduktor.io/kafka/what-is-apache-kafka/)

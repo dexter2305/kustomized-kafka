@@ -3,10 +3,11 @@ kind: Pod
 metadata:
   name: kafka-producer
 spec:
+  restartPolicy: OnFailure
   containers:
   - name: debugger
     image: confluentinc/cp-kafka:7.0.1
-    command: ["sleep", "60m"]
+    command: ["sleep", "6h"]
     env:
     - name: bsso
       value: "--bootstrap-server broker.kafka.svc.cluster.local:9092"
