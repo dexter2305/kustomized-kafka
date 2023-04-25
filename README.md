@@ -40,6 +40,53 @@ k apply -k .
 k delete -k .
 ```
 
-## References
+## Useful commands using kafka-console shell scripts
+Bash into broker pod or producer pod or consumer pod to try out the following commands. Below commands uses env variables set in Pod manifest
+### Topic management
+- Create 
+  ```bash
+  kafka-topic $bsso --create --topic mytopic --partitions 10
+  ```
+- List 
+  ```bash
+  kafka-topic $bsso --list
+  ```
+- Describe 
+  ```bash
+  kafka-topic $bsso --describe --topic mytopic
+  ```
+### Producer
+- Env var `$bsso` refers to the bootstrap server option and its value. Refer Pod manifest for its values.
+- Create producer 
+  ```bash
+  kafka-console-producer $bsso --topic mytopic < 10.msgs.input
+  ```
+- Create producer with key parser
+  Produces messages with key, value separated by `=`
+  ```bash
+  kafka-console-producer $bsso --property parse.key=true --property key.separator== --topic mytopic < 10.msgs.input
+  ```
 
+### Consumer
+- Var `$bsso` refers to the bootstrap server option and its value. Refer Pod manifest for its values.
+- Var `$consumer_props` is optional. Enables printing of the partition, key and value. Used here for better understanding.  Refer pod manifest for its value.
+- Create consumer with a group
+  ```bash
+  kafka-console-consumer $bsso $consumer_props --group mygroup.name --topic mytopic
+  ```
+- List consumer groups
+  ```bash
+  kafka-consumer-group $bsso --list
+  ```
+- Describer consumer groups
+  ```bash
+  kafka-consumer-group $bsso --list --group mygroup.name
+  ```
+  Using `--members` switch lists all the members of the consumer group.
+  ```bash
+  kafka-consumer-group $bsso --list --group mygroup.name --members
+  ```
+
+## References
 - [conduktor.io](https://www.conduktor.io/kafka/what-is-apache-kafka/)
+- [Baeldung - listing kafka consumer groups](https://www.baeldung.com/ops/listing-kafka-consumers)
