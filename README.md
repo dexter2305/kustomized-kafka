@@ -8,7 +8,7 @@ Installation creates the following
 - Zookeeper and kafka instances are deployed in namespace `kafka`.
 - Kafka producer and consumer pods are deployed in namespace  `kafka`. These are pods are useful for testing.
 
-# Installation steps  
+# Syntax Check
 
 ## Apply syntax check 
 ```bash
@@ -26,7 +26,7 @@ Cases where the namespace is missing in the cluster are identified by this test
 k apply -k . --dry-run=server
 ```
 
-## Install
+# Install
 - Install broker, zookeper, kafka-producer, kafka-consumer.
 - Kafka-producer and Kafka-consumer pods will be used only for testing. 
 ```bash
