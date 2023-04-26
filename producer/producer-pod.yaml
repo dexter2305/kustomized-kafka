@@ -11,6 +11,8 @@ spec:
     env:
     - name: bsso
       value: "--bootstrap-server broker.kafka.svc.cluster.local:9092"
+    - name: useEqAsKeySep
+      value: "--property parse.key=true --property key.separator=="
     resources:
       limits:
         memory: "200Mi"
